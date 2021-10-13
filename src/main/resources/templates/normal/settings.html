@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>This is about page</title>
+</head>
+<body>
+	<section>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-body">
+						<div class="container text-center">
+							<img style="height: 200px; width: 200px;"
+						class="my_profile_picture" th:src="@{'/img/'+${user.imageUrl}}" />
+						<h1 class="text-center mt-2" th:text="${user.name}"></h1>
+								<h3 class="my-3">Change Password</h3>
+						</div>
+						
+								<form th:action="@{/user/change-password}" method="post">
+								<!--Old Password  -->
+									<div class="form-group">
+										<input name="oldPassword"type="password" class="form-control" placeholder="Enter old password" />
+									</div>
+									<!--New Password  -->
+										<div class="form-group">
+										<input name="newPassword"  type="password" class="form-control" placeholder="Enter new password" />
+									</div>
+									<div class="container text-center">
+											<input type="submit" class="btn btn-lg btn-success" value="Change">
+											<input class="btn btn-lg btn-warning" type="reset">
+									</div>
+									<div class="container text-center">
+								
+									</div>
+								</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(".item").removeClass("active");
+			$("#setting-link").addClass("active");
+		</script>
+	</section>
+</body>
+</html>
